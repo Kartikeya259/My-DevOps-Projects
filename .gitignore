@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+
+# Kubernetes secrets (use mongodb-secret.yaml.example as template)
+**/mongodb-secret.yaml
+
+# Logs
+*.log

@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: 'http://<your-nexus-ip>:8081/nexus/repository/<your-repo-name>',
+                    groupId: 'com.example',
+                    version: '1.0-SNAPSHOT',
+                    repository: 'snapshots',
+                    credentialsId: 'nexus-credentials',
+                    artifacts: [
+                        [artifactId: 'your-artifact-id', type: 'jar', file: 'target/your-artifact-id.jar']
+                    ]
+                )
+            }
+        }
+    }
+}

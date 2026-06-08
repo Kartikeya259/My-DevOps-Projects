@@ -1,0 +1,6 @@
+# Replace UUID values with output from: sudo blkid
+UUID=<uuid-of-apps-lv>  /var/www/html  ext4  defaults  0  0
+UUID=<uuid-of-logs-lv>  /var/log       ext4  defaults  0  0
+
+# Database server: mount db-lv to /db
+# UUID=<uuid-of-db-lv>    /db            ext4  defaults  0  0
